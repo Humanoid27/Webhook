@@ -1,0 +1,19 @@
+name: Forward to Discord
+
+on:
+  repository_dispatch: # Memungkinkan pemicu dari API GitHub
+    types: [send_webhook]
+
+jobs:
+  process_and_send:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Format dan Kirim ke Discord
+        run: |
+          echo "Input dari perangkat: ${{ github.event.client_payload.input }}"
+          FORMATTED_MESSAGE="**${{ github.event.client_payload.input }}**"
+
+          # Kirim ke Webhook Discord
+          curl -X POST -H "Content-Type: application/json" \
+          -d "{\"content\": \"$FORMATTED_MESSAGE\"}" \
+          https://discord.com/api/webhooks/{WEBHOOK_ID}/{WEBHOOK_TOKEN}
