@@ -16,4 +16,4 @@ jobs:
           # Kirim ke Webhook Discord
           curl -X POST -H "Content-Type: application/json" \
           -d "{\"content\": \"$FORMATTED_MESSAGE\"}" \
-          https://discord.com/api/webhooks/{WEBHOOK_ID}/{WEBHOOK_TOKEN}
+          https://discord.com/api/webhooks/1326295125252636703/hL1-XHdes92IRx6P8sfR3cGhpCOE5-tda5kf9cYw6GBmsWg-YDcPoLL73AwGLVHnX4le
